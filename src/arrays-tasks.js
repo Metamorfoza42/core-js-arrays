@@ -113,8 +113,10 @@ function removeFalsyValues(arr) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  const arrSrtLength = arr.map((elem) => elem.length);
+
+  return arrSrtLength;
 }
 
 /**
@@ -131,8 +133,20 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  const initVal = 0;
+  const sumOfArr = arr.reduce(
+    (accumulator, currVal) => accumulator + currVal,
+    initVal
+  );
+  const average = sumOfArr / arr.length;
+  const averageRounded = Math.round(average * 100) / 100;
+
+  return averageRounded;
 }
 
 /**
@@ -145,8 +159,9 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const firstLength = arr[0].length;
+  return arr.every((str) => str.length === firstLength);
 }
 
 /**
